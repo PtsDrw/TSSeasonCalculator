@@ -1,0 +1,503 @@
+<!doctype html>
+<html id="bgGradient" lang="ru" class="bg-gradient-s2">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор вышек TS</title>
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/flex.css">
+
+</head>
+<body id="bodyFontColor" class="font-s2">
+<div class="setting-header">
+    <div class="info">
+        <div class="info-icon"><i class="fa-solid fa-info"></i></div>
+    </div>
+    <div class="theme-control d-flex">
+        <div id="themeBar" class="theme-select-icon">
+            <i class="fa-solid fa-brush"></i>
+        </div>
+        <div id="themeS1" class="theme content-center d-none themeS1">S1</div>
+        <div id="themeS2" class="theme content-center d-none themeS2">S2</div>
+        <div id="themeS3" class="theme content-center d-none themeS3">S3</div>
+    </div>
+</div>
+
+    <div class="header mt-15">
+        Калькулятор нефти by DEX
+        <div id="timeUTC"></div>
+        <div id="deathline"></div>
+    </div>
+    <div id="title1" class="title bg-title-s2">
+        <span>Введите количество очков</span>
+    </div>
+    <div class="score-section content-between">
+        <div id="container1" class="score-block bg-container-s2 mt-15">
+            <span>Ваши очки: </span>
+            <input type="number" name="" class="input-block myscore-input-s2" id="input1" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)">
+<!--            <div id="input1" class="input-block myscore-input-s2">0</div>-->
+        </div>
+        <div id="container2" class="score-block bg-container-s2 mt-15">
+            <span>Соперники: </span>
+            <input type="number" name="" class="input-block opponentscore-input-s2" id="input2" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)">
+<!--            <div id="input2" class="input-block opponentscore-input-s2">0</div>-->
+        </div>
+    </div>
+    <div id="title2" class="title bg-title-s2 mt-15">
+        <span>Выберите размер вышки</span>
+    </div>
+
+    <div class="size-tab-section mt-15">
+        <div id="smallpointtab" class="size-tab deactive-tab bg-tabs-s2">
+            <div  class="tab-body">S</div>
+        </div>
+        <div id="mediumpointtab" class="size-tab deactive-tab bg-tabs-s2">
+            <div class="tab-body">M-L</div>
+        </div>
+        <div id="bigpointtab" class="size-tab deactive-tab bg-tabs-s2">
+            <div class="tab-body">XL-XXL</div>
+        </div>
+    </div>
+    <div id="calculateSection" class="calculate-section border-s2 bg-container-s2 d-none">
+        <div class="calculate-tab"></div>
+<!--        Маленькая точка-->
+        <div id="smallPoint" class="point-group flex-wrap d-none content-evenly gap">
+            <!--            Вариант захвата V1               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="SmallMyScore0" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="SmallRivalScore3" class="score"></div>
+                    </div>
+                    <div id="SmallTagV1win" class="content-center tag tag-win d-none">Выигрыш</div>
+                    <div id="SmallTagV1lose" class="content-center tag tag-lose d-none d-none">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V2               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="SmallMyScore1" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="SmallRivalScore2" class="score"></div>
+                    </div>
+                    <div id="SmallTagV2win" class="content-center tag tag-win d-none">Выигрыш</div>
+                    <div id="SmallTagV2lose" class="content-center tag tag-lose d-none">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V3               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="SmallMyScore2" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="SmallRivalScore1" class="score"></div>
+                    </div>
+                    <div id="SmallTagV3win" class="content-center tag tag-win d-none">Выигрыш</div>
+                    <div id="SmallTagV3lose" class="content-center tag tag-lose d-none">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V4               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="SmallMyScore3" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="SmallRivalScore0" class="score"></div>
+                    </div>
+                    <div id="SmallTagV4win" class="content-center tag tag-win d-none">Выигрыш</div>
+                    <div id="SmallTagV4lose" class="content-center tag tag-lose d-none">Проигрыш</div>
+                </div>
+            </div>
+
+            <div class="Summary ">
+                <div class="SummaryHeader point-header-s2">Сводка по вышке</div>
+                <div class="SummaryBody point-body-s2">
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Лимит очков до конца: </div><div id="smallMaxScore"></div>
+                    </div>
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Еще очков для победы: </div><div id="ScoretoWin">0</div>
+                    </div>
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Суммарно очков: </div><div id="SummaryScoreWin">0</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--        Средняя точка-->
+        <div id="mediumPoint" class="point-group flex-wrap content-evenly d-none gap">
+            <!--            Вариант захвата V1               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="MediumMyScore0" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="MediumRivalScore4" class="score"></div>
+                    </div>
+                    <div id="MediumTagV1win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="MediumTagV1lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V2               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-win">1</div>
+                    </div>
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="MediumMyScore1" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="MediumRivalScore3" class="score"></div>
+                    </div>
+                    <div id="MediumTagV2win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="MediumTagV2lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V3               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-win">1</div>
+                    </div>
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-lose">1</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="MediumMyScore2" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="MediumRivalScore2" class="score"></div>
+                    </div>
+                    <div id="MediumTagV3win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="MediumTagV3lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V4               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-lose">1</div>
+                    </div>
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-win">1</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="MediumMyScore3" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="MediumRivalScore1" class="score"></div>
+                    </div>
+                    <div id="MediumTagV4win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="MediumTagV4lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V5               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-win">1</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="MediumMyScore4" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="MediumRivalScore0" class="score"></div>
+                    </div>
+                    <div id="MediumTagV5win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="MediumTagV5lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+        </div>
+        <!--        Большая точка-->
+        <div id="bigPoint" class="point-group  flex-wrap  content-evenly d-none gap">
+            <!--            Вариант захвата V1               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-center flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore0" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore6" class="score"></div>
+                    </div>
+                    <div id="BigTagV1win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV1lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V2               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore1" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore5" class="score"></div>
+                    </div>
+                    <div id="BigTagV2win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV2lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V3               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore2" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore4" class="score"></div>
+                    </div>
+                    <div id="BigTagV3win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV3lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V4               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore3" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore3" class="score"></div>
+                    </div>
+                    <div id="BigTagV4win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV4lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V5               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore4" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore2" class="score"></div>
+                    </div>
+                    <div id="BigTagV5win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV5lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V6               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore5" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore1" class="score"></div>
+                    </div>
+                    <div id="BigTagV6win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV6lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+            <!--            Вариант захвата V7               -->
+            <div class="point grow">
+                <div class="point-header d-flex content-evenly flex-column">
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-lose">2</div>
+                    </div>
+                    <div class="point-title">Вариант захвата</div>
+                </div>
+                <div class="point-body">
+                    <div class="point-body-title">Очки к окончанию:</div>
+                    <div class="score-point d-flex content-center">
+                        <div>Вы: </div><div id="BigMyScore6" class="score"></div>
+                    </div>
+                    <div class="score-point d-flex content-center">
+                        <div>Соперники: </div><div id="BigRivalScore0" class="score"></div>
+                    </div>
+                    <div id="BigTagV7win" class="content-center tag tag-win">Выигрыш</div>
+                    <div id="BigTagV7lose" class="content-center tag tag-lose">Проигрыш</div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+<div class="footer"></div>
+    <script src="js/app.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="https://kit.fontawesome.com/b8c88df5bc.js" crossorigin="anonymous"></script>
+</body>
+</html>

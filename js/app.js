@@ -98,7 +98,6 @@ function EndTimer(){
     const now = new Date();
     const NowTimeSec = (now.getUTCHours()*60+now.getUTCMinutes())*60+now.getUTCSeconds();
     const SecondtoEnd = EndTimeSec - NowTimeSec;
-    console.log(SecondtoEnd)
     let hours = Math.trunc(SecondtoEnd/60/60);
     let minutes = Math.trunc((SecondtoEnd/60)-(hours*60));
     let seconds = SecondtoEnd - ((hours*60*60)+(minutes*60));

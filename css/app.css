@@ -35,14 +35,14 @@ body {
 
 .theme-select-icon {
     transform: rotate(20deg);
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     text-align: center;
     /*height: 15px;*/
     /*padding: 5px;*/
     color: #ffffff;
-    font-size: 40px;
-    margin-right: 20px;
+    font-size: 30px;
+    margin-right: 6px;
 }
 
 .setting-header {
@@ -54,37 +54,38 @@ body {
 .info {
     margin-top: 30px;
     align-items: center;
-    padding: 15px 0px 15px 5px;
+    padding: 10px 0px 10px 5px;
     background-color: rgba(0, 0, 0, 0.58);
     border-radius: 0 50px 50px 0;
 }
 
 .info-icon {
-    width: 40px;
-    height: 50px;
+    width: 30px;
+    height: 40px;
     text-align: center;
     /*height: 15px;*/
     /*padding: 5px;*/
     color: #ffffff;
-    font-size: 40px;
-    margin-right: 20px;
+    font-size: 30px;
+    margin-right: 10px;
 }
 
 .theme-control {
     margin-top: 30px;
     align-items: center;
-    padding: 15px 5px 15px 15px;
+    padding: 10px 5px 10px 10px;
     background-color: rgba(0, 0, 0, 0.58);
     border-radius: 50px 0 0 50px;
-    transition-delay: 1s;
+    transition-delay: 5s;
 }
 
 .theme {
-    width: 15px;
+    width: 35px;
+    height: 35px;
     justify-content: center;
     align-items: center;
-    height: 15px;
-    padding: 15px;
+
+    /*padding: 10px;*/
     background-color: #fff;
     border-radius: 50%;
     text-align: center;
@@ -183,6 +184,7 @@ body {
     border-radius: 10px;
     margin-top: 10px;
     font-size: 20px;
+    /*text-align: center;*/
 }
 
 .size-tab-section {

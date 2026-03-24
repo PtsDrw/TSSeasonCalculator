@@ -1,20 +1,4 @@
-const themeBar = document.getElementById('themeBar');
-const themeS1 = document.getElementById('themeS1');
-const themeS2 = document.getElementById('themeS2');
-const themeS3 = document.getElementById('themeS3');
 
-
-//блоки использующие тему
-const bgGradient = document.getElementById('bgGradient');
-const bodyFontColor = document.getElementById('bodyFontColor');
-const title1 = document.getElementById('title1');
-const title2 = document.getElementById('title2');
-const container1 = document.getElementById('container1');
-const container2 = document.getElementById('container2');
-const input1 = document.getElementById('input1');
-const input2 = document.getElementById('input2');
-const pointHeaders = document.querySelectorAll('.point-header');
-const pointBodys = document.querySelectorAll('.point-body');
 
 
 setThemeS2();
@@ -212,8 +196,6 @@ function setThemeS3(){
     bigPointTab.classList.remove('bg-tabs-s2');
     calculateSection.classList.remove("border-s2");
     calculateSection.classList.remove('bg-container-s2');
-    pointHeader.classList.remove('point-header-s2');
-    pointBody.classList.remove('point-body-s2');
     pointHeaders.forEach(el => {
         el.classList.remove('point-header-s2')
     });

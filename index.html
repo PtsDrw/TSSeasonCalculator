@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Сезонный калькулятор</title>
+    <title>Сезонный калькулятор TS</title>
 
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/font.css">
@@ -30,8 +30,9 @@
 
     <div class="header mt-15">
         Сезонный калькулятор
-        <div id="timeUTC"></div>
-        <div id="deathline"></div>
+        <div id="timeUTC" class="d-none"></div>
+        <div class="h-title d-none">Времени до конца раунда:</div>
+        <div id="deathline" class="d-none"></div>
     </div>
     <div id="title1" class="title bg-title-s2">
         <span>Введите количество очков</span>
@@ -40,12 +41,10 @@
         <div id="container1" class="score-block bg-container-s2 mt-15">
             <span>Ваши очки: </span>
             <input type="number" name="" class="input-block myscore-input-s2" id="input1" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)">
-<!--            <div id="input1" class="input-block myscore-input-s2">0</div>-->
         </div>
         <div id="container2" class="score-block bg-container-s2 mt-15">
             <span>Соперники: </span>
             <input type="number" name="" class="input-block opponentscore-input-s2" id="input2" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)">
-<!--            <div id="input2" class="input-block opponentscore-input-s2">0</div>-->
         </div>
     </div>
     <div id="title2" class="title bg-title-s2 mt-15">
@@ -67,14 +66,14 @@
         <div class="calculate-tab"></div>
 <!--        Маленькая точка-->
         <div id="smallPoint" class="point-group flex-wrap d-none content-evenly gap">
-            <!--            Вариант захвата V1               -->
+            <!--            Вариант(ы) захвата V1               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -89,14 +88,14 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V2               -->
+            <!--            Вариант(ы) захвата V2               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -111,14 +110,14 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V3               -->
+            <!--            Вариант(ы) захвата V3               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
                         <div class="point-icon point-win">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -133,14 +132,14 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V4               -->
+            <!--            Вариант(ы) захвата V4               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
                         <div class="point-icon point-win">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -159,13 +158,13 @@
                 <div class="SummaryHeader point-header-s2">Сводка по вышке</div>
                 <div class="SummaryBody point-body-s2">
                     <div class="SummaryScore">
-                        <div class="SummaryTitle">Лимит очков до конца: </div><div id="smallMaxScore"></div>
+                        <div class="SummaryTitle">Макс. до конца: </div><div id="smallMaxScore"></div>
                     </div>
                     <div class="SummaryScore">
-                        <div class="SummaryTitle">Еще очков для победы: </div><div id="ScoretoWin">0</div>
+                        <div class="SummaryTitle">Еще для победы: </div><div id="smallScoretoWin">0</div>
                     </div>
                     <div class="SummaryScore">
-                        <div class="SummaryTitle">Суммарно очков: </div><div id="SummaryScoreWin">0</div>
+                        <div class="SummaryTitle">Суммарно: </div><div id="smallSummaryScoreWin">0</div>
                     </div>
                 </div>
 
@@ -174,7 +173,7 @@
 
         <!--        Средняя точка-->
         <div id="mediumPoint" class="point-group flex-wrap content-evenly d-none gap">
-            <!--            Вариант захвата V1               -->
+            <!--            Вариант(ы) захвата V1               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -182,7 +181,7 @@
                         <div class="point-icon point-lose">2</div>
                         <div class="point-icon point-lose">1</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -197,7 +196,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V2               -->
+            <!--            Вариант(ы) захвата V2               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -210,7 +209,7 @@
                         <div class="point-icon point-lose">2</div>
                         <div class="point-icon point-lose">1</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -225,7 +224,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V3               -->
+            <!--            Вариант(ы) захвата V3               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -238,7 +237,7 @@
                         <div class="point-icon point-win">2</div>
                         <div class="point-icon point-lose">1</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -253,7 +252,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V4               -->
+            <!--            Вариант(ы) захвата V4               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -266,7 +265,7 @@
                         <div class="point-icon point-win">2</div>
                         <div class="point-icon point-win">1</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -281,7 +280,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V5               -->
+            <!--            Вариант(ы) захвата V5               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -289,7 +288,7 @@
                         <div class="point-icon point-win">2</div>
                         <div class="point-icon point-win">1</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -303,10 +302,27 @@
                     <div id="MediumTagV5lose" class="content-center tag tag-lose">Проигрыш</div>
                 </div>
             </div>
+
+
+            <div class="Summary ">
+                <div class="SummaryHeader point-header-s2">Сводка по вышке</div>
+                <div class="SummaryBody point-body-s2">
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Макс. до конца: </div><div id="mediumMaxScore"></div>
+                    </div>
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Еще для победы: </div><div id="mediumScoretoWin">0</div>
+                    </div>
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Суммарно: </div><div id="mediumSummaryScoreWin">0</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <!--        Большая точка-->
         <div id="bigPoint" class="point-group  flex-wrap  content-evenly d-none gap">
-            <!--            Вариант захвата V1               -->
+            <!--            Вариант(ы) захвата V1               -->
             <div class="point grow">
                 <div class="point-header d-flex content-center flex-column">
                     <div class="point-illustration">
@@ -315,7 +331,7 @@
                         <div class="point-icon point-lose">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -330,7 +346,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V2               -->
+            <!--            Вариант(ы) захвата V2               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -345,7 +361,7 @@
                         <div class="point-icon point-win">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -360,7 +376,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V3               -->
+            <!--            Вариант(ы) захвата V3               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -375,7 +391,7 @@
                         <div class="point-icon point-lose">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -390,7 +406,7 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V4               -->
+            <!--            Вариант(ы) захвата V4               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
@@ -399,7 +415,7 @@
                         <div class="point-icon point-lose">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -414,16 +430,22 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V5               -->
+            <!--            Вариант(ы) захвата V5               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
-                        <div class="point-icon point-lose">1</div>
-                        <div class="point-icon point-lose">2</div>
-                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-win">1</div>
                         <div class="point-icon point-lose">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-illustration">
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-lose">1</div>
+                        <div class="point-icon point-win">2</div>
+                    </div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -438,16 +460,16 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V6               -->
+            <!--            Вариант(ы) захвата V6               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
                         <div class="point-icon point-lose">1</div>
-                        <div class="point-icon point-lose">2</div>
-                        <div class="point-icon point-lose">1</div>
-                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-win">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -462,16 +484,16 @@
                 </div>
             </div>
 
-            <!--            Вариант захвата V7               -->
+            <!--            Вариант(ы) захвата V7               -->
             <div class="point grow">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
-                        <div class="point-icon point-lose">1</div>
-                        <div class="point-icon point-lose">2</div>
-                        <div class="point-icon point-lose">1</div>
-                        <div class="point-icon point-lose">2</div>
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
+                        <div class="point-icon point-win">1</div>
+                        <div class="point-icon point-win">2</div>
                     </div>
-                    <div class="point-title">Вариант захвата</div>
+                    <div class="point-title">Вариант(ы) захвата</div>
                 </div>
                 <div class="point-body">
                     <div class="point-body-title">Очки к окончанию:</div>
@@ -486,18 +508,31 @@
                 </div>
             </div>
 
+            <div class="Summary ">
+                <div class="SummaryHeader point-header-s2">Сводка по вышке</div>
+                <div class="SummaryBody point-body-s2">
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Макс. до конца: </div><div id="bigMaxScore"></div>
+                    </div>
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Еще для победы: </div><div id="bigScoretoWin">0</div>
+                    </div>
+                    <div class="SummaryScore">
+                        <div class="SummaryTitle">Суммарно: </div><div id="bigSummaryScoreWin">0</div>
+                    </div>
+                </div>
 
-
-
-
+            </div>
         </div>
     </div>
 
 
 
 <div class="footer"></div>
+    <script src="js/const.js"></script>
     <script src="js/app.js"></script>
     <script src="js/theme.js"></script>
+
     <script src="https://kit.fontawesome.com/b8c88df5bc.js" crossorigin="anonymous"></script>
 </body>
 </html>

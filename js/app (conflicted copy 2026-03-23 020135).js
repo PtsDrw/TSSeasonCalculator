@@ -1,3 +1,95 @@
+const smallPointTab = document.getElementById('smallpointtab');
+const mediumPointTab = document.getElementById('mediumpointtab');
+const bigPointTab = document.getElementById('bigpointtab');
+const calculateSection = document.getElementById('calculateSection');
+const smallPoint = document.getElementById('smallPoint');
+const mediumPoint = document.getElementById('mediumPoint');
+const bigPoint = document.getElementById('bigPoint');
+const timeUTC = document.getElementById('timeUTC');
+
+const SmallMyScore0 = document.getElementById('SmallMyScore0');
+const SmallRivalScore3 = document.getElementById('SmallRivalScore3');
+const SmallMyScore1 = document.getElementById('SmallMyScore1');
+const SmallRivalScore2 = document.getElementById('SmallRivalScore2');
+const SmallMyScore2 = document.getElementById('SmallMyScore2');
+const SmallRivalScore1 = document.getElementById('SmallRivalScore1');
+const SmallMyScore3 = document.getElementById('SmallMyScore3');
+const SmallRivalScore0 = document.getElementById('SmallRivalScore0');
+const MediumMyScore0 = document.getElementById('MediumMyScore0');
+const MediumRivalScore4 = document.getElementById('MediumRivalScore4');
+const MediumMyScore1 = document.getElementById('MediumMyScore1');
+const MediumRivalScore3 = document.getElementById('MediumRivalScore3');
+const MediumMyScore2 = document.getElementById('MediumMyScore2');
+const MediumRivalScore2 = document.getElementById('MediumRivalScore2');
+const MediumMyScore3 = document.getElementById('MediumMyScore3');
+const MediumRivalScore1 = document.getElementById('MediumRivalScore1');
+const MediumMyScore4 = document.getElementById('MediumMyScore4');
+const MediumRivalScore0 = document.getElementById('MediumRivalScore0');
+const BigMyScore0 = document.getElementById('BigMyScore0');
+const BigRivalScore6 = document.getElementById('BigRivalScore6');
+const BigMyScore1 = document.getElementById('BigMyScore1');
+const BigRivalScore5 = document.getElementById('BigRivalScore5');
+const BigMyScore2 = document.getElementById('BigMyScore2');
+const BigRivalScore4 = document.getElementById('BigRivalScore4');
+const BigMyScore3 = document.getElementById('BigMyScore3');
+const BigRivalScore3 = document.getElementById('BigRivalScore3');
+const BigMyScore4 = document.getElementById('BigMyScore4');
+const BigRivalScore2 = document.getElementById('BigRivalScore2');
+const BigMyScore5 = document.getElementById('BigMyScore5');
+const BigRivalScore1 = document.getElementById('BigRivalScore1');
+const BigMyScore6 = document.getElementById('BigMyScore6');
+const BigRivalScore0 = document.getElementById('BigRivalScore0');
+
+const deathline = document.getElementById('deathline');
+const smallMaxScore = document.getElementById('smallMaxScore');
+const smallScoretoWin = document.getElementById('smallScoretoWin');
+const smallSummaryScoreWin = document.getElementById('smallSummaryScoreWin');
+const mediumMaxScore = document.getElementById('mediumMaxScore');
+const mediumScoretoWin = document.getElementById('mediumScoretoWin');
+const mediumSummaryScoreWin = document.getElementById('mediumSummaryScoreWin');
+const bigMaxScore = document.getElementById('bigMaxScore');
+const bigScoretoWin = document.getElementById('bigScoretoWin');
+const bigSummaryScoreWin = document.getElementById('bigSummaryScoreWin');
+
+
+const SmallTagV1win = document.getElementById('SmallTagV1win');
+const SmallTagV1lose= document.getElementById('SmallTagV1lose');
+const SmallTagV2win = document.getElementById('SmallTagV2win');
+const SmallTagV2lose= document.getElementById('SmallTagV2lose');
+const SmallTagV3win = document.getElementById('SmallTagV3win');
+const SmallTagV3lose= document.getElementById('SmallTagV3lose');
+const SmallTagV4win = document.getElementById('SmallTagV4win');
+const SmallTagV4lose= document.getElementById('SmallTagV4lose');
+
+const MediumTagV1win = document.getElementById('MediumTagV1win');
+const MediumTagV1lose= document.getElementById('MediumTagV1lose');
+const MediumTagV2win = document.getElementById('MediumTagV2win');
+const MediumTagV2lose= document.getElementById('MediumTagV2lose');
+const MediumTagV3win = document.getElementById('MediumTagV3win');
+const MediumTagV3lose= document.getElementById('MediumTagV3lose');
+const MediumTagV4win = document.getElementById('MediumTagV4win');
+const MediumTagV4lose= document.getElementById('MediumTagV4lose');
+const MediumTagV5win = document.getElementById('MediumTagV5win');
+const MediumTagV5lose= document.getElementById('MediumTagV5lose');
+
+const BigTagV1win = document.getElementById('BigTagV1win');
+const BigTagV1lose= document.getElementById('BigTagV1lose');
+const BigTagV2win = document.getElementById('BigTagV2win');
+const BigTagV2lose= document.getElementById('BigTagV2lose');
+const BigTagV3win = document.getElementById('BigTagV3win');
+const BigTagV3lose= document.getElementById('BigTagV3lose');
+const BigTagV4win = document.getElementById('BigTagV4win');
+const BigTagV4lose= document.getElementById('BigTagV4lose');
+const BigTagV5win = document.getElementById('BigTagV5win');
+const BigTagV5lose= document.getElementById('BigTagV5lose');
+const BigTagV6win = document.getElementById('BigTagV6win');
+const BigTagV6lose= document.getElementById('BigTagV6lose');
+const BigTagV7win = document.getElementById('BigTagV7win');
+const BigTagV7lose= document.getElementById('BigTagV7lose');
+
+
+
+
 //массивы элементов получаемых равное кол-во очков
 let myscore0 = [
     SmallMyScore0,
@@ -88,8 +180,6 @@ function updateUTC() {
 }
 
 function EndTimer(){
-    //Расчет остатка времени
-
     const endHours = 23;
     const endMinutes = 50;
     const endSeconds = 0;
@@ -98,7 +188,6 @@ function EndTimer(){
     const now = new Date();
     const NowTimeSec = (now.getUTCHours()*60+now.getUTCMinutes())*60+now.getUTCSeconds();
     const SecondtoEnd = EndTimeSec - NowTimeSec;
-    console.log(SecondtoEnd)
     let hours = Math.trunc(SecondtoEnd/60/60);
     let minutes = Math.trunc((SecondtoEnd/60)-(hours*60));
     let seconds = SecondtoEnd - ((hours*60*60)+(minutes*60));
@@ -113,10 +202,12 @@ function EndTimer(){
         deathline.textContent = 'Раунд завершен!';
     }
 
+    let slimitScore = Number(addThreeScore(SecondtoEnd));
+    let mlimitScore = Number(addFourScore(SecondtoEnd));
+    let blimitScore = Number(addSixScore(SecondtoEnd));
 
-    let limitScore = EndTimeSec;
-    let myScore = Number(input1.value);
-    let rivalScore = Number(input2.value);
+    let myScore = input1.value;
+    let rivalScore = input2.value;
 
 
     //Выводим свои свои очки в вариации с +0 очков
@@ -385,77 +476,57 @@ function EndTimer(){
 
 
     // вывод сводки Вышка S
-    let slimitScore=addThreeScore(SecondtoEnd);
-    if (slimitScore>0) {
-        smallMaxScore.innerText = slimitScore;
-    }
-    else {
-        smallMaxScore.innerText = String(0);
-    }
 
-    if (
-        Math.ceil((slimitScore+1+rivalScore-myScore)/2+10)>slimitScore
-){
+    if (slimitScore>0) smallMaxScore.innerText = slimitScore; else smallMaxScore.innerText = 0; //Лимит очков до конца
+
+    //Еще очков для победы
+
+    if (Math.ceil((slimitScore+1+rivalScore-myScore)/2+10)>slimitScore){
         smallScoretoWin.innerText = 'Не возможно';
         smallSummaryScoreWin.innerText = 'Не возможно';
-    } else
-        if (Math.ceil((slimitScore+1+rivalScore-myScore)/2)<0){
+    } else if (Math.ceil((slimitScore+1+rivalScore-myScore)/2)<0){
         smallScoretoWin.innerText = 'Достигнуто';
         smallSummaryScoreWin.innerText = 'Достигнуто';
     } else {
-        smallScoretoWin.textContent = Math.ceil((slimitScore+1+rivalScore-myScore)/2+10);
+        smallScoretoWin.innerText = Math.ceil((slimitScore+1+rivalScore-myScore)/2+10);
         smallSummaryScoreWin.innerText = myScore+Math.ceil((slimitScore+1+rivalScore-myScore)/2+10);
     }
 
-    // вывод сводки Вышка M
-    let mlimitScore=addFourScore(SecondtoEnd);
-    if (mlimitScore>0) {
-        mediumMaxScore.innerText = mlimitScore;
-    }
-    else {
-        mediumMaxScore.innerText = String(0);
-    }
+    // вывод сводки Вышка M-L
 
-    if (
-        Math.ceil((mlimitScore+1+rivalScore-myScore)/2+10)>mlimitScore
-    ){
+    if (mlimitScore>0) mediumMaxScore.innerText = mlimitScore; else mediumMaxScore.innerText = 0; //Лимит очков до конца
+
+    //Еще очков для победы
+
+    if (Math.ceil((mlimitScore+1+rivalScore-myScore)/2+10)>mlimitScore){
         mediumScoretoWin.innerText = 'Не возможно';
         mediumSummaryScoreWin.innerText = 'Не возможно';
-    } else
-    if (Math.ceil((mlimitScore+1+rivalScore-myScore)/2)<0){
+    } else if (Math.ceil((mlimitScore+1+rivalScore-myScore)/2)<0){
         mediumScoretoWin.innerText = 'Достигнуто';
         mediumSummaryScoreWin.innerText = 'Достигнуто';
     } else {
-        mediumScoretoWin.textContent = Math.ceil((mlimitScore+1+rivalScore-myScore)/2+10);
+        mediumScoretoWin.innerText = Math.ceil((mlimitScore+1+rivalScore-myScore)/2+10);
         mediumSummaryScoreWin.innerText = myScore+Math.ceil((mlimitScore+1+rivalScore-myScore)/2+10);
     }
 
+    // вывод сводки Вышка XL - XXL
 
-    // вывод сводки Вышка X
-    let blimitScore=addSixScore(SecondtoEnd);
-    if (blimitScore>0) {
-        bigMaxScore.innerText = blimitScore;
-    }
-    else {
-        bigMaxScore.innerText = String(0);
-    }
+    if (blimitScore>0) bigMaxScore.innerText = blimitScore; else bigMaxScore.innerText = 0; //Лимит очков до конца
 
-    if (
-        Math.ceil((blimitScore+1+rivalScore-myScore)/2+10)>blimitScore
-    ){
+    //Еще очков для победы
+
+    if (Math.ceil((blimitScore+1+rivalScore-myScore)/2+10)>blimitScore){
         bigScoretoWin.innerText = 'Не возможно';
         bigSummaryScoreWin.innerText = 'Не возможно';
-    } else
-    if (Math.ceil((blimitScore+1+rivalScore-myScore)/2)<0){
+    } else if (Math.ceil((blimitScore+1+rivalScore-myScore)/2)<0){
         bigScoretoWin.innerText = 'Достигнуто';
         bigSummaryScoreWin.innerText = 'Достигнуто';
     } else {
-        bigScoretoWin.textContent = Math.ceil((blimitScore+1+rivalScore-myScore)/2+10);
+        bigScoretoWin.innerText = Math.ceil((blimitScore+1+rivalScore-myScore)/2+10);
         bigSummaryScoreWin.innerText = myScore+Math.ceil((blimitScore+1+rivalScore-myScore)/2+10);
     }
 
-
-}
+    }
 
 updateUTC();
 

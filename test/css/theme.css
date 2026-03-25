@@ -1,0 +1,202 @@
+/*Тема 1 сезон*/
+.themeS1 {
+    background-color: rgba(230, 244, 255, 0.85);
+    border: 2px solid #2A6B8F;
+    color: #0A2A44
+}
+
+.brush-color-s1 {
+    color: rgba(230, 244, 255, 0.85);
+}
+
+.border-s1 {
+    border: 5px solid #2A6B8F;
+}
+
+.bg-gradient-s1{
+    background: -webkit-linear-gradient(145deg, #E1F0FA 0%, #A9C9E0 100%);
+    background: -moz-linear-gradient(145deg, #E1F0FA 0%, #A9C9E0 100%);
+    background: linear-gradient(145deg, #E1F0FA 0%, #A9C9E0 100%);
+}
+
+.bg-title-s1 {
+    background-color: #1E4A6F;
+    color: #FFFFFF;
+}
+
+.bg-container-s1 {
+    background-color: rgba(230, 244, 255, 0.85) ;
+}
+
+.myscore-input-s1 {
+    background-color: #FFFFFF;
+    border: 2px solid #B0C9E0;
+    color: #006304;
+}
+
+.opponentscore-input-s1 {
+    background-color: #FFFFFF;
+    border: 2px solid #B0C9E0;
+    color: #420006;
+}
+
+.font-s1 {
+    color: #0A2A44
+}
+
+.font-title-s1 {
+    color: #FFFFFF
+}
+
+.bg-tabs-s1 {
+    background-color: #2A6B8F;
+    color: #FFFFFF;
+}
+
+.point-header-s1 {
+    background-color: #1E4A6F;
+    color: #FFFFFF;
+}
+
+.point-body-s1 {
+    background-color: #B0C9E0;
+}
+
+
+/* ↑ Тема 1 сезон ↑ */
+
+/*Тема 2 сезон*/
+
+.themeS2 {
+    background-color: rgba(255, 241, 224, 0.8);
+    border: 2px solid #B85C3A;
+}
+
+.brush-color-s2 {
+    color: rgba(255, 241, 224, 0.8);
+}
+
+.border-s2 {
+    border: 5px solid #B85C3A;
+}
+
+.bg-gradient-s2{
+    background: -webkit-linear-gradient(145deg, #FDE6BE 0%, #F39C4B 100%);
+    background: -moz-linear-gradient(145deg, #FDE6BE 0%, #F39C4B 100%);
+    background: linear-gradient(135deg, #FDE6BE 0%, #F39C4B 100%);
+}
+
+.bg-title-s2 {
+    background-color: #C44536;
+    color: #FFFFFF;
+}
+
+.bg-container-s2 {
+    background-color: rgba(255, 241, 224, 0.8);
+}
+
+.myscore-input-s2 {
+    background-color: #FFFFFF;
+    border: 2px solid #E3C9B5;
+    color: #006304;
+}
+
+.opponentscore-input-s2 {
+    background-color: #FFFFFF;
+    border: 2px solid #E3C9B5;
+    color: #420006;
+}
+
+.font-s2 {
+    color: #3A1C1F
+}
+
+.font-title-s2 {
+    color: #FFFFFF
+}
+
+.bg-tabs-s2 {
+    background-color: #B85C3A;
+    color: #FFFFFF;
+}
+
+.point-header-s2 {
+    background-color: #B85C3A;
+    color: #FFFFFF;
+}
+
+.point-body-s2 {
+    background-color: rgba(196,69,54,0.1);
+}
+
+/* ↑ Тема 2 сезон ↑ */
+
+
+
+/*Тема 3 сезон*/
+
+.themeS3 {
+    background-color: rgba(240, 242, 245, 0.7);
+    border: 2px solid #5F6B7A;
+    color: #1F2937;
+}
+
+.brush-color-s3 {
+    color: rgba(240, 242, 245, 0.7);
+}
+
+.border-s3 {
+    border: 5px solid #5F6B7A;
+}
+
+.bg-gradient-s3{
+    background: -webkit-linear-gradient(120deg, #D3D9DE 0%, #BFC5CB 100%);
+    background: -moz-linear-gradient(120deg, #D3D9DE 0%, #BFC5CB 100%);
+    background: linear-gradient(120deg, #D3D9DE 0%, #BFC5CB 100%);
+}
+
+.bg-title-s3 {
+    background-color: #4A5568;
+    color: #FFFFFF;
+}
+
+.bg-container-s3 {
+    background-color: rgba(240, 242, 245, 0.7);
+}
+
+.myscore-input-s3 {
+    background-color: #FFFFFF;
+    border: 2px solid #C9CED4;
+    color: #006304;
+}
+
+.opponentscore-input-s3 {
+    background-color: #FFFFFF;
+    border: 2px solid #C9CED4;
+    color: #60000a;
+}
+
+.font-s3 {
+    color: #1F2937
+}
+
+
+
+.bg-tabs-s3 {
+    background-color: #5F6B7A;
+    color: #FFFFFF;
+}
+
+.point-header-s3 {
+    background-color: #5F6B7A;
+
+    color: #FFFFFF;
+}
+
+
+
+.point-body-s3 {
+    background-color: rgba(74,85,104,0.1);
+    /*background-color: #1E4A6F;*/
+}
+/* ↑ Тема 3 сезон ↑ */

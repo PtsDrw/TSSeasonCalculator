@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="css/flex.css">
     <link rel="stylesheet" href="css/switch.css">
 
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
 <body id="bodyFontColor" class="font-s2">
 <div class="setting-header content-between">
@@ -34,21 +43,17 @@
     <div class="popup-body">
         <div class="infoTitle">Как использовать?</div>
             <ul>
-                <li>Переписываете ваши очки и очки соперников из <span class="point-name">Верстака</span> в игре в соответствующие поля калькулятора "Ваши очки" и "Соперники";</li>
-                <li>Выбираете размер <span class="point-name"></span> от куда были переписаны очки, они поделены на 3 типа: S (2 места захвата), M и L (3 места захвата), XL и XXL (4 места захвата);</li>
+                <li>Переписываете ваши очки и очки соперников из Вышки в игре в соответствующие поля калькулятора "Ваши очки" и "Соперники";</li>
+                <li>Выбираете размер Вышки от куда были переписаны очки, они поделены на 3 типа: S (2 места захвата), M и L (3 места захвата), XL и XXL (4 места захвата);</li>
                 <li>У вас откроется список основных вариантов захвата взависимости от количества занятых мест вами и соперниками.
                     Во всех вариантах захвата, будет отображено количество очков, которое будет собрано к окончанию раунда, так же помечается будет ли победа или проигрыш к концу раунда, при удерживании мест;</li>
-                <li>В самом низу вариантов захвата отображается сваодка по выбранному типу <span class="point-name">Верстака</span>,
+                <li>В самом низу вариантов захвата отображается сваодка по выбранному типу Вышки,
                     где отображается максимально-возможное количество очков, которое можно заработать до конца раунда,
                     количество очков которое необходимо еще заработать для гарантированной победы
                     и суммарное количество очков которое у вас должно получиться для победы.</li>
             </ul>
-        <div class="infoTitle">Зачем нужен калькулятор?</div>
-        <p>Калькулятор позволяет облегчить жизнь по рассчету заработанных очков на <span class="point-name">Верстаке</span>
-            при различных вариантах удерживания точек. </p>
-            <p>Под конец дня может быть достаточно удерживания всего одного места на точке и это будет отображено в калькуляторе,
-                что позволит уменьшить трату якорей на сражения места, и трату якорей, которые лучше сохранять для захвата остальных точек.
-            </p>
+        <div class="infoTitle">Вопросы и ошибки</div>
+        <p>Если вы не можете разобраться как использовать калькулятор или заметили ошибки, обращайтесь в ТГ @DIMODED </p>
 
     </div>
 </div>
@@ -56,6 +61,9 @@
 
     <div class="header mt-15">
         Сезонный калькулятор
+        <div class="headerSubtitle">
+            разработано союзом [DEX] - 217 штат
+        </div>
         <div id="timeUTC" class="d-none"></div>
         <div class="endTimer">
             <div class="h-title">до конца раунда:</div>
@@ -92,17 +100,16 @@
         </div>
     </div>
     <div id="calculateSection" class="calculate-section border-s2 bg-container-s2 d-none">
-        <div class="PointFilter">
-
-
-            <div class="SwitchBlock LoseSwitch">
-                <div class="switchTitle">Скрыть <br>проигрышные</div>
+        <div class="switchTitle">Скрыть варианты</div>
+        <div class="PointFilter content-center">
+            <div class="SwitchBlock LoseSwitch d-flex flex-column content-center items-center">
+                Проигрышные:
                 <label class="switch">
                     <input id="typeLose" type="checkbox">
                 </label>
             </div>
-            <div class="SwitchBlock WinSwitch">
-                <div class="switchTitle">Скрыть <br>выигрышные</div>
+            <div class="SwitchBlock WinSwitch -flex flex-column items-center">
+                Выигрышные:
                 <label class="switch">
                     <input id="typeWin" type="checkbox">
                 </label>
@@ -118,6 +125,7 @@
         <div id="smallPoint" class="point-group flex-wrap d-none content-evenly gap">
             <!--            Вариант(ы) захвата V1               -->
             <div class="point grow d-flex">
+
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>

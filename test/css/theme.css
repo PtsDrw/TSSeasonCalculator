@@ -1,4 +1,8 @@
 /*Тема 1 сезон*/
+.popupBG-s1 {
+    background-color: rgb(193, 233, 255);
+}
+
 .themeS1 {
     background-color: rgba(230, 244, 255, 0.85);
     border: 2px solid #2A6B8F;
@@ -66,6 +70,10 @@
 /* ↑ Тема 1 сезон ↑ */
 
 /*Тема 2 сезон*/
+
+.popupBG-s2 {
+    background-color: rgb(255, 227, 196);
+}
 
 .themeS2 {
     background-color: rgba(255, 241, 224, 0.8);
@@ -135,6 +143,10 @@
 
 /*Тема 3 сезон*/
 
+.popupBG-s3 {
+    background-color: rgb(209, 209, 209);
+}
+
 .themeS3 {
     background-color: rgba(240, 242, 245, 0.7);
     border: 2px solid #5F6B7A;
@@ -200,3 +212,4 @@
     /*background-color: #1E4A6F;*/
 }
 /* ↑ Тема 3 сезон ↑ */
+

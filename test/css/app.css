@@ -102,7 +102,7 @@ body {
     width: 90vw;
     max-width: 600px;
     max-height: 90vh;
-    background-color: rgb(255, 227, 196);
+
     border: 1px solid black;
     opacity: 1;
     z-index: 9999;
@@ -133,12 +133,17 @@ body {
     padding: 10px 10px 15px 10px;
     overflow-y:auto;
     max-height: 75vh;
+}
 
+.anchor {
+    position: sticky;
+    top:20px;
+    left: 20px;
 }
 
 .popup ul {
     padding: 10px 0px 10px 30px;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 li+li {
     margin-top: 5px;
@@ -146,6 +151,9 @@ li+li {
 
 li {
     list-style-type: decimal;
+    font-family: 'MyFont5', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
 }
 
 
@@ -153,13 +161,18 @@ li {
     font-weight: bold;
     text-align: center;
     font-family: 'myfont4', sans-serif;
+    font-size: 20px;
     /*padding-bottom: 20px;*/
 }
 
 .popup-body p {
     padding: 20px 0 0 0;
-    text-align: justify;
+    /*text-align: justify;*/
     text-indent: 18px;
+    font-weight: normal;
+    font-family: 'MyFont5', sans-serif;
+    font-size: 18px;
+
 }
 
 
@@ -171,6 +184,10 @@ li {
     font-weight: bold;
     font-size: xx-large;
     border-radius: 25px;
+}
+
+.headerSubtitle {
+    font-size: 13px;
 }
 
 .endTimer {

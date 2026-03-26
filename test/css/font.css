@@ -21,3 +21,12 @@
     font-family: myfont4;
     src: url("fonts/CCUltimatum-Heavy.ttf") format("truetype");
 }
+
+@font-face {
+    font-family: MyFont5;
+    src: url("fonts/HawthornC.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+
+}
+

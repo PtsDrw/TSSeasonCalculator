@@ -11,11 +11,21 @@
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/switch.css">
+
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
+    <meta name="theme-color" content="#ffffff">
 
 </head>
 <body id="bodyFontColor" class="font-s2">
-<div class="setting-header content-end">
-    <div class="info d-none">
+<div class="setting-header content-between">
+    <div class="info">
         <div class="info-icon"><i class="fa-solid fa-info"></i></div>
     </div>
     <div class="theme-control d-flex">
@@ -28,11 +38,38 @@
     </div>
 </div>
 
+<div class="popup d-none">
+    <div class="popup-header"><div class="popup-title">О калькуляторе</div><div class="popup-close"><i class="fa-regular fa-circle-xmark"></i></div></div>
+    <div class="popup-body">
+        <div class="infoTitle">Как использовать?</div>
+            <ul>
+                <li>Переписываете ваши очки и очки соперников из Вышки в игре в соответствующие поля калькулятора "Ваши очки" и "Соперники";</li>
+                <li>Выбираете размер Вышки от куда были переписаны очки, они поделены на 3 типа: S (2 места захвата), M и L (3 места захвата), XL и XXL (4 места захвата);</li>
+                <li>У вас откроется список основных вариантов захвата взависимости от количества занятых мест вами и соперниками.
+                    Во всех вариантах захвата, будет отображено количество очков, которое будет собрано к окончанию раунда, так же помечается будет ли победа или проигрыш к концу раунда, при удерживании мест;</li>
+                <li>В самом низу вариантов захвата отображается сваодка по выбранному типу Вышки,
+                    где отображается максимально-возможное количество очков, которое можно заработать до конца раунда,
+                    количество очков которое необходимо еще заработать для гарантированной победы
+                    и суммарное количество очков которое у вас должно получиться для победы.</li>
+            </ul>
+        <div class="infoTitle">Вопросы и ошибки</div>
+        <p>Если вы не можете разобраться как использовать калькулятор или заметили ошибки, обращайтесь в ТГ @DIMODED </p>
+
+    </div>
+</div>
+
+
     <div class="header mt-15">
         Сезонный калькулятор
+        <div class="headerSubtitle">
+            разработано союзом [DEX] - 217 штат
+        </div>
         <div id="timeUTC" class="d-none"></div>
-        <div class="h-title d-none">Времени до конца раунда:</div>
-        <div id="deathline" class="d-none"></div>
+        <div class="endTimer">
+            <div class="h-title">до конца раунда:</div>
+            <div id="deathline" class=""></div>
+        </div>
+
     </div>
     <div id="title1" class="title bg-title-s2">
         <span>Введите количество очков</span>
@@ -40,11 +77,11 @@
     <div class="score-section content-between">
         <div id="container1" class="score-block bg-container-s2 mt-15">
             <span>Ваши очки: </span>
-            <input type="number" name="" class="input-block myscore-input-s2" id="input1" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)">
+            <input type="number" name="" class="input-block myscore-input-s2" id="input1" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)" onchange="filterUpdate()">
         </div>
         <div id="container2" class="score-block bg-container-s2 mt-15">
             <span>Соперники: </span>
-            <input type="number" name="" class="input-block opponentscore-input-s2" id="input2" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)">
+            <input type="number" name="" class="input-block opponentscore-input-s2" id="input2" min="0" max="8640" value="0" onfocus="this.value=''" onblur="checkEmpty(this,0)" onchange="filterUpdate()">
         </div>
     </div>
     <div id="title2" class="title bg-title-s2 mt-15">
@@ -63,11 +100,32 @@
         </div>
     </div>
     <div id="calculateSection" class="calculate-section border-s2 bg-container-s2 d-none">
-        <div class="calculate-tab"></div>
-<!--        Маленькая точка-->
+        <div class="switchTitle">Скрыть варианты</div>
+        <div class="PointFilter content-center">
+            <div class="SwitchBlock LoseSwitch d-flex flex-column content-center items-center">
+                Проигрышные:
+                <label class="switch">
+                    <input id="typeLose" type="checkbox">
+                </label>
+            </div>
+            <div class="SwitchBlock WinSwitch -flex flex-column items-center">
+                Выигрышные:
+                <label class="switch">
+                    <input id="typeWin" type="checkbox">
+                </label>
+            </div>
+
+
+
+
+
+        </div>
+
+        <!--        Маленькая точка-->
         <div id="smallPoint" class="point-group flex-wrap d-none content-evenly gap">
             <!--            Вариант(ы) захвата V1               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
+
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
@@ -89,7 +147,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V2               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -111,7 +169,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V3               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
@@ -133,7 +191,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V4               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -174,7 +232,7 @@
         <!--        Средняя точка-->
         <div id="mediumPoint" class="point-group flex-wrap content-evenly d-none gap">
             <!--            Вариант(ы) захвата V1               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
@@ -197,7 +255,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V2               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
@@ -225,7 +283,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V3               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -253,7 +311,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V4               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -281,7 +339,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V5               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -323,7 +381,7 @@
         <!--        Большая точка-->
         <div id="bigPoint" class="point-group  flex-wrap  content-evenly d-none gap">
             <!--            Вариант(ы) захвата V1               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-center flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-lose">1</div>
@@ -347,7 +405,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V2               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -377,7 +435,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V3               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -407,7 +465,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V4               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -431,7 +489,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V5               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -461,7 +519,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V6               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>
@@ -485,7 +543,7 @@
             </div>
 
             <!--            Вариант(ы) захвата V7               -->
-            <div class="point grow">
+            <div class="point grow d-flex">
                 <div class="point-header d-flex content-evenly flex-column">
                     <div class="point-illustration">
                         <div class="point-icon point-win">1</div>

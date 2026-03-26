@@ -73,6 +73,19 @@ let rivalscore6 = [
     BigRivalScore6,
 ];
 
+
+let activeLoseTag;
+let activeWinTag;
+
+
+infoBtn.addEventListener('click', function (){
+    popup.style.display = 'block';
+});
+
+popupClose.addEventListener('click', function (){
+    popup.style.display = 'none';
+});
+
 function updateUTC() {
     const now = new Date();
     const hours = String(now.getUTCHours()).padStart(2, '0');
@@ -88,7 +101,11 @@ function updateUTC() {
 }
 
 function EndTimer(){
+
+
     //Расчет остатка времени
+    activeWinTag = document.querySelectorAll('.WinTagActive');
+    activeLoseTag = document.querySelectorAll('.LoseTagActive');
 
     const endHours = 23;
     const endMinutes = 50;
@@ -175,208 +192,208 @@ function EndTimer(){
 
     // Маленькая вышка В1
     if(Number(SmallMyScore0.innerText)<Number(SmallRivalScore3.innerText)) {
-        SmallTagV1lose.classList.add('d-flex');
-        SmallTagV1lose.classList.remove('d-none');
-        SmallTagV1win.classList.add('d-none');
-        SmallTagV1win.classList.remove('d-flex');
+        SmallTagV1lose.classList.add('d-flex','LoseTagActive');
+        SmallTagV1lose.classList.remove('d-none','LoseTagNone');
+        SmallTagV1win.classList.add('d-none','WinTagNone');
+        SmallTagV1win.classList.remove('d-flex','WinTagActive');
     } else {
-        SmallTagV1lose.classList.remove('d-flex');
-        SmallTagV1lose.classList.add('d-none');
-        SmallTagV1win.classList.remove('d-none');
-        SmallTagV1win.classList.add('d-flex');
+        SmallTagV1lose.classList.remove('d-flex','LoseTagActive');
+        SmallTagV1lose.classList.add('d-none','LoseTagNone');
+        SmallTagV1win.classList.remove('d-none','WinTagNone');
+        SmallTagV1win.classList.add('d-flex','WinTagActive');
     }
     // Маленькая вышка В2
     if(Number(SmallMyScore1.innerText)<Number(SmallRivalScore2.innerText)) {
-        SmallTagV2lose.classList.add('d-flex');
-        SmallTagV2lose.classList.remove('d-none');
-        SmallTagV2win.classList.add('d-none');
-        SmallTagV2win.classList.remove('d-flex');
+        SmallTagV2lose.classList.add('d-flex','LoseTagActive');
+        SmallTagV2lose.classList.remove('d-none','LoseTagNone');
+        SmallTagV2win.classList.add('d-none','WinTagNone');
+        SmallTagV2win.classList.remove('d-flex','WinTagActive');
     } else {
-        SmallTagV2lose.classList.remove('d-flex');
-        SmallTagV2lose.classList.add('d-none');
-        SmallTagV2win.classList.remove('d-none');
-        SmallTagV2win.classList.add('d-flex');
+        SmallTagV2lose.classList.remove('d-flex','LoseTagActive');
+        SmallTagV2lose.classList.add('d-none','LoseTagNone');
+        SmallTagV2win.classList.remove('d-none','WinTagNone');
+        SmallTagV2win.classList.add('d-flex','WinTagActive');
     }
 
     // Маленькая вышка В3
     if(Number(SmallMyScore2.innerText)<Number(SmallRivalScore1.innerText)) {
-        SmallTagV3lose.classList.add('d-flex');
-        SmallTagV3lose.classList.remove('d-none');
-        SmallTagV3win.classList.add('d-none');
-        SmallTagV3win.classList.remove('d-flex');
+        SmallTagV3lose.classList.add('d-flex','LoseTagActive');
+        SmallTagV3lose.classList.remove('d-none','LoseTagNone');
+        SmallTagV3win.classList.add('d-none','WinTagNone');
+        SmallTagV3win.classList.remove('d-flex','WinTagActive');
     } else {
-        SmallTagV3lose.classList.remove('d-flex');
-        SmallTagV3lose.classList.add('d-none');
-        SmallTagV3win.classList.remove('d-none');
-        SmallTagV3win.classList.add('d-flex');
+        SmallTagV3lose.classList.remove('d-flex','LoseTagActive');
+        SmallTagV3lose.classList.add('d-none','LoseTagNone');
+        SmallTagV3win.classList.remove('d-none','WinTagNone');
+        SmallTagV3win.classList.add('d-flex','WinTagActive');
     }
 
     // Маленькая вышка В4
     if(Number(SmallMyScore3.innerText)<Number(SmallRivalScore0.innerText)) {
-        SmallTagV4lose.classList.add('d-flex');
-        SmallTagV4lose.classList.remove('d-none');
-        SmallTagV4win.classList.add('d-none');
-        SmallTagV4win.classList.remove('d-flex');
+        SmallTagV4lose.classList.add('d-flex','LoseTagActive');
+        SmallTagV4lose.classList.remove('d-none','LoseTagNone');
+        SmallTagV4win.classList.add('d-none','WinTagNone');
+        SmallTagV4win.classList.remove('d-flex','WinTagActive');
     } else {
-        SmallTagV4lose.classList.remove('d-flex');
-        SmallTagV4lose.classList.add('d-none');
-        SmallTagV4win.classList.remove('d-none');
-        SmallTagV4win.classList.add('d-flex');
+        SmallTagV4lose.classList.remove('d-flex','LoseTagActive');
+        SmallTagV4lose.classList.add('d-none','LoseTagNone');
+        SmallTagV4win.classList.remove('d-none','WinTagNone');
+        SmallTagV4win.classList.add('d-flex','WinTagActive');
     }
 
     // Средняя вышка В1
     if(Number(MediumMyScore0.innerText)<Number(MediumRivalScore4.innerText)) {
-        MediumTagV1lose.classList.add('d-flex');
-        MediumTagV1lose.classList.remove('d-none');
-        MediumTagV1win.classList.add('d-none');
-        MediumTagV1win.classList.remove('d-flex');
+        MediumTagV1lose.classList.add('d-flex','LoseTagActive');
+        MediumTagV1lose.classList.remove('d-none','LoseTagNone');
+        MediumTagV1win.classList.add('d-none','WinTagNone');
+        MediumTagV1win.classList.remove('d-flex','WinTagActive');
     } else {
-        MediumTagV1lose.classList.remove('d-flex');
-        MediumTagV1lose.classList.add('d-none');
-        MediumTagV1win.classList.remove('d-none');
-        MediumTagV1win.classList.add('d-flex');
+        MediumTagV1lose.classList.remove('d-flex','LoseTagActive');
+        MediumTagV1lose.classList.add('d-none','LoseTagNone');
+        MediumTagV1win.classList.remove('d-none','WinTagNone');
+        MediumTagV1win.classList.add('d-flex','WinTagActive');
     }
 
     // Средняя вышка В2
     if(Number(MediumMyScore1.innerText)<Number(MediumRivalScore3.innerText)) {
-        MediumTagV2lose.classList.add('d-flex');
-        MediumTagV2lose.classList.remove('d-none');
-        MediumTagV2win.classList.add('d-none');
-        MediumTagV2win.classList.remove('d-flex');
+        MediumTagV2lose.classList.add('d-flex','LoseTagActive');
+        MediumTagV2lose.classList.remove('d-none','LoseTagNone');
+        MediumTagV2win.classList.add('d-none','WinTagNone');
+        MediumTagV2win.classList.remove('d-flex','WinTagActive');
     } else {
-        MediumTagV2lose.classList.remove('d-flex');
-        MediumTagV2lose.classList.add('d-none');
-        MediumTagV2win.classList.remove('d-none');
-        MediumTagV2win.classList.add('d-flex');
+        MediumTagV2lose.classList.remove('d-flex','LoseTagActive');
+        MediumTagV2lose.classList.add('d-none','LoseTagNone');
+        MediumTagV2win.classList.remove('d-none','WinTagNone');
+        MediumTagV2win.classList.add('d-flex','WinTagActive');
     }
 
     // Средняя вышка В3
     if(Number(MediumMyScore2.innerText)<Number(MediumRivalScore2.innerText)) {
-        MediumTagV3lose.classList.add('d-flex');
-        MediumTagV3lose.classList.remove('d-none');
-        MediumTagV3win.classList.add('d-none');
-        MediumTagV3win.classList.remove('d-flex');
+        MediumTagV3lose.classList.add('d-flex','LoseTagActive');
+        MediumTagV3lose.classList.remove('d-none','LoseTagNone');
+        MediumTagV3win.classList.add('d-none','WinTagNone');
+        MediumTagV3win.classList.remove('d-flex','WinTagActive');
     } else {
-        MediumTagV3lose.classList.remove('d-flex');
-        MediumTagV3lose.classList.add('d-none');
-        MediumTagV3win.classList.remove('d-none');
-        MediumTagV3win.classList.add('d-flex');
+        MediumTagV3lose.classList.remove('d-flex','LoseTagActive');
+        MediumTagV3lose.classList.add('d-none','LoseTagNone');
+        MediumTagV3win.classList.remove('d-none','WinTagNone');
+        MediumTagV3win.classList.add('d-flex','WinTagActive');
     }
 
     // Средняя вышка В4
     if(Number(MediumMyScore3.innerText)<Number(MediumRivalScore1.innerText)) {
-        MediumTagV4lose.classList.add('d-flex');
-        MediumTagV4lose.classList.remove('d-none');
-        MediumTagV4win.classList.add('d-none');
-        MediumTagV4win.classList.remove('d-flex');
+        MediumTagV4lose.classList.add('d-flex','LoseTagActive');
+        MediumTagV4lose.classList.remove('d-none','LoseTagNone');
+        MediumTagV4win.classList.add('d-none','WinTagNone');
+        MediumTagV4win.classList.remove('d-flex','WinTagActive');
     } else {
-        MediumTagV4lose.classList.remove('d-flex');
-        MediumTagV4lose.classList.add('d-none');
-        MediumTagV4win.classList.remove('d-none');
-        MediumTagV4win.classList.add('d-flex');
+        MediumTagV4lose.classList.remove('d-flex','LoseTagActive');
+        MediumTagV4lose.classList.add('d-none','LoseTagNone');
+        MediumTagV4win.classList.remove('d-none','WinTagNone');
+        MediumTagV4win.classList.add('d-flex','WinTagActive');
     }
 
     // Средняя вышка В5
     if(Number(MediumMyScore4.innerText)<Number(MediumRivalScore0.innerText)) {
-        MediumTagV5lose.classList.add('d-flex');
-        MediumTagV5lose.classList.remove('d-none');
-        MediumTagV5win.classList.add('d-none');
-        MediumTagV5win.classList.remove('d-flex');
+        MediumTagV5lose.classList.add('d-flex','LoseTagActive');
+        MediumTagV5lose.classList.remove('d-none','LoseTagNone');
+        MediumTagV5win.classList.add('d-none','WinTagNone');
+        MediumTagV5win.classList.remove('d-flex','WinTagActive');
     } else {
-        MediumTagV5lose.classList.remove('d-flex');
-        MediumTagV5lose.classList.add('d-none');
-        MediumTagV5win.classList.remove('d-none');
-        MediumTagV5win.classList.add('d-flex');
+        MediumTagV5lose.classList.remove('d-flex','LoseTagActive');
+        MediumTagV5lose.classList.add('d-none','LoseTagNone');
+        MediumTagV5win.classList.remove('d-none','WinTagNone');
+        MediumTagV5win.classList.add('d-flex','WinTagActive');
     }
 
     // Большая вышка В1
     if(Number(BigMyScore0.innerText)<Number(BigRivalScore6.innerText)) {
-        BigTagV1lose.classList.add('d-flex');
-        BigTagV1lose.classList.remove('d-none');
-        BigTagV1win.classList.add('d-none');
-        BigTagV1win.classList.remove('d-flex');
+        BigTagV1lose.classList.add('d-flex','LoseTagActive');
+        BigTagV1lose.classList.remove('d-none','LoseTagNone');
+        BigTagV1win.classList.add('d-none','WinTagNone');
+        BigTagV1win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV1lose.classList.remove('d-flex');
-        BigTagV1lose.classList.add('d-none');
-        BigTagV1win.classList.remove('d-none');
-        BigTagV1win.classList.add('d-flex');
+        BigTagV1lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV1lose.classList.add('d-none','LoseTagNone');
+        BigTagV1win.classList.remove('d-none','WinTagNone');
+        BigTagV1win.classList.add('d-flex','WinTagActive');
     }
 
     // Большая вышка В2
     if(Number(BigMyScore1.innerText)<Number(BigRivalScore5.innerText)) {
-        BigTagV2lose.classList.add('d-flex');
-        BigTagV2lose.classList.remove('d-none');
-        BigTagV2win.classList.add('d-none');
-        BigTagV2win.classList.remove('d-flex');
+        BigTagV2lose.classList.add('d-flex','LoseTagActive');
+        BigTagV2lose.classList.remove('d-none','LoseTagNone');
+        BigTagV2win.classList.add('d-none','WinTagNone');
+        BigTagV2win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV2lose.classList.remove('d-flex');
-        BigTagV2lose.classList.add('d-none');
-        BigTagV2win.classList.remove('d-none');
-        BigTagV2win.classList.add('d-flex');
+        BigTagV2lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV2lose.classList.add('d-none','LoseTagNone');
+        BigTagV2win.classList.remove('d-none','WinTagNone');
+        BigTagV2win.classList.add('d-flex','WinTagActive');
     }
 
     // Большая вышка В3
     if(Number(BigMyScore2.innerText)<Number(BigRivalScore4.innerText)) {
-        BigTagV3lose.classList.add('d-flex');
-        BigTagV3lose.classList.remove('d-none');
-        BigTagV3win.classList.add('d-none');
-        BigTagV3win.classList.remove('d-flex');
+        BigTagV3lose.classList.add('d-flex','LoseTagActive');
+        BigTagV3lose.classList.remove('d-none','LoseTagNone');
+        BigTagV3win.classList.add('d-none','WinTagNone');
+        BigTagV3win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV3lose.classList.remove('d-flex');
-        BigTagV3lose.classList.add('d-none');
-        BigTagV3win.classList.remove('d-none');
-        BigTagV3win.classList.add('d-flex');
+        BigTagV3lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV3lose.classList.add('d-none','LoseTagNone');
+        BigTagV3win.classList.remove('d-none','WinTagNone');
+        BigTagV3win.classList.add('d-flex','WinTagActive');
     }
 
     // Большая вышка В4
     if(Number(BigMyScore3.innerText)<Number(BigRivalScore3.innerText)) {
-        BigTagV4lose.classList.add('d-flex');
-        BigTagV4lose.classList.remove('d-none');
-        BigTagV4win.classList.add('d-none');
-        BigTagV4win.classList.remove('d-flex');
+        BigTagV4lose.classList.add('d-flex','LoseTagActive');
+        BigTagV4lose.classList.remove('d-none','LoseTagNone');
+        BigTagV4win.classList.add('d-none','WinTagNone');
+        BigTagV4win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV4lose.classList.remove('d-flex');
-        BigTagV4lose.classList.add('d-none');
-        BigTagV4win.classList.remove('d-none');
-        BigTagV4win.classList.add('d-flex');
+        BigTagV4lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV4lose.classList.add('d-none','LoseTagNone');
+        BigTagV4win.classList.remove('d-none','WinTagNone');
+        BigTagV4win.classList.add('d-flex','WinTagActive');
     }3
     // Большая вышка В5
     if(Number(BigMyScore4.innerText)<Number(BigRivalScore2.innerText)) {
-        BigTagV5lose.classList.add('d-flex');
-        BigTagV5lose.classList.remove('d-none');
-        BigTagV5win.classList.add('d-none');
-        BigTagV5win.classList.remove('d-flex');
+        BigTagV5lose.classList.add('d-flex','LoseTagActive');
+        BigTagV5lose.classList.remove('d-none','LoseTagNone');
+        BigTagV5win.classList.add('d-none','WinTagNone');
+        BigTagV5win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV5lose.classList.remove('d-flex');
-        BigTagV5lose.classList.add('d-none');
-        BigTagV5win.classList.remove('d-none');
-        BigTagV5win.classList.add('d-flex');
+        BigTagV5lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV5lose.classList.add('d-none','LoseTagNone');
+        BigTagV5win.classList.remove('d-none','WinTagNone');
+        BigTagV5win.classList.add('d-flex','WinTagActive');
     }
 
     // Большая вышка В4
     if(Number(BigMyScore5.innerText)<Number(BigRivalScore1.innerText)) {
-        BigTagV6lose.classList.add('d-flex');
-        BigTagV6lose.classList.remove('d-none');
-        BigTagV6win.classList.add('d-none');
-        BigTagV6win.classList.remove('d-flex');
+        BigTagV6lose.classList.add('d-flex','LoseTagActive');
+        BigTagV6lose.classList.remove('d-none','LoseTagNone');
+        BigTagV6win.classList.add('d-none','WinTagNone');
+        BigTagV6win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV6lose.classList.remove('d-flex');
-        BigTagV6lose.classList.add('d-none');
-        BigTagV6win.classList.remove('d-none');
-        BigTagV6win.classList.add('d-flex');
+        BigTagV6lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV6lose.classList.add('d-none','LoseTagNone');
+        BigTagV6win.classList.remove('d-none','WinTagNone');
+        BigTagV6win.classList.add('d-flex','WinTagActive');
     }
 
     // Большая вышка В7
     if(Number(BigMyScore6.innerText)<Number(BigRivalScore0.innerText)) {
-        BigTagV7lose.classList.add('d-flex');
-        BigTagV7lose.classList.remove('d-none');
-        BigTagV7win.classList.add('d-none');
-        BigTagV7win.classList.remove('d-flex');
+        BigTagV7lose.classList.add('d-flex','LoseTagActive');
+        BigTagV7lose.classList.remove('d-none','LoseTagNone');
+        BigTagV7win.classList.add('d-none','WinTagNone');
+        BigTagV7win.classList.remove('d-flex','WinTagActive');
     } else {
-        BigTagV7lose.classList.remove('d-flex');
-        BigTagV7lose.classList.add('d-none');
-        BigTagV7win.classList.remove('d-none');
-        BigTagV7win.classList.add('d-flex');
+        BigTagV7lose.classList.remove('d-flex','LoseTagActive');
+        BigTagV7lose.classList.add('d-none','LoseTagNone');
+        BigTagV7win.classList.remove('d-none','WinTagNone');
+        BigTagV7win.classList.add('d-flex','WinTagActive');
     }
 
 
@@ -532,6 +549,7 @@ function checkEmpty(input, defaultValue) {
     if (input.value.trim()==="") {
         input.value = defaultValue;
     }
+
 }
 
 function addOneScore(seconds) {
@@ -559,3 +577,53 @@ function addSixScore(seconds) {
 }
 
 
+checkBoxLose.addEventListener('change',function (){
+    if (checkBoxLose.checked) {
+        console.log('проигрышные выключены');
+        activeLoseTag.forEach(el=>{
+           if(el) {
+               let elPoint = el.parentElement;
+               elPoint.parentElement.classList.add('d-none')
+               elPoint.parentElement.classList.remove('d-flex')
+           }
+        });
+    }
+    else {
+        activeLoseTag.forEach(el=>{
+            if(el) {
+                let elPoint = el.parentElement;
+                elPoint.parentElement.classList.remove('d-none')
+                elPoint.parentElement.classList.add('d-flex')
+            }
+        });
+    }
+
+});
+
+checkBoxWin.addEventListener('change',function (){
+    if (checkBoxWin.checked) {
+        console.log('выигрышные выключены');
+        activeWinTag.forEach(el=>{
+            if(el) {
+                let elPoint = el.parentElement;
+                elPoint.parentElement.classList.add('d-none')
+                elPoint.parentElement.classList.remove('d-flex')
+            }
+        });
+    } else {
+        console.log('выигрышные включены')
+        activeWinTag.forEach(el=>{
+            if(el) {
+                let elPoint = el.parentElement;
+                elPoint.parentElement.classList.remove('d-none');
+                elPoint.parentElement.classList.add('d-flex')
+            }
+        });
+    }
+});
+
+function filterUpdate() {
+
+    checkBoxLose.dispatchEvent(new Event('change'));
+    checkBoxWin.dispatchEvent(new Event('change'));
+}

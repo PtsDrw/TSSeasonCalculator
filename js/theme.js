@@ -43,6 +43,7 @@ function setThemeS1(){
     bigPointTab.classList.add('bg-tabs-s1');
     calculateSection.classList.add("border-s1");
     calculateSection.classList.add('bg-container-s1');
+    popup.classList.add('popupBG-s1');
     pointHeaders.forEach(el => {
         el.classList.add('point-header-s1')
     });
@@ -50,6 +51,7 @@ function setThemeS1(){
         el.classList.add('point-body-s1')
     });
     //очистка темы 2
+    popup.classList.remove('popupBG-s2');
     themeBar.classList.remove('brush-color-s2');
     bgGradient.classList.remove('bg-gradient-s2');
     bodyFontColor.classList.remove('font-s2');
@@ -71,6 +73,7 @@ function setThemeS1(){
         el.classList.remove('point-body-s2')
     });
     //очистка темы 3
+    popup.classList.remove('popupBG-s3');
     themeBar.classList.remove('brush-color-s3');
     bgGradient.classList.remove('bg-gradient-s3');
     bodyFontColor.classList.remove('font-s3');
@@ -95,6 +98,7 @@ function setThemeS1(){
 
 function setThemeS2(){
     //приминение темы 2
+    popup.classList.add('popupBG-s2');
     themeBar.classList.add('brush-color-s2');
     bgGradient.classList.add('bg-gradient-s2');
     bodyFontColor.classList.add('font-s2');
@@ -116,6 +120,7 @@ function setThemeS2(){
         el.classList.add('point-body-s2')
     });
     //очистка темы 3
+    popup.classList.remove('popupBG-s3');
     themeBar.classList.remove('brush-color-s3');
     bgGradient.classList.remove('bg-gradient-s3');
     bodyFontColor.classList.remove('font-s3');
@@ -137,6 +142,7 @@ function setThemeS2(){
         el.classList.remove('point-body-s3')
     });
     //очистка темы 1
+    popup.classList.remove('popupBG-s1');
     themeBar.classList.remove('brush-color-s1');
     bgGradient.classList.remove('bg-gradient-s1');
     bodyFontColor.classList.remove('font-s1');
@@ -161,6 +167,7 @@ function setThemeS2(){
 
 function setThemeS3(){
     //приминение темы 3
+    popup.classList.add('popupBG-s3');
     themeBar.classList.add('brush-color-s3');
     bgGradient.classList.add('bg-gradient-s3');
     bodyFontColor.classList.add('font-s3');
@@ -182,6 +189,7 @@ function setThemeS3(){
         el.classList.add('point-body-s3')
     });
     //очистка темы 2
+    popup.classList.remove('popupBG-s2');
     themeBar.classList.remove('brush-color-s2');
     bgGradient.classList.remove('bg-gradient-s2');
     bodyFontColor.classList.remove('font-s2');
@@ -203,6 +211,7 @@ function setThemeS3(){
         el.classList.remove('point-body-s2')
     });
     //очистка темы 1
+    popup.classList.remove('popupBG-s1');
     themeBar.classList.remove('brush-color-s1');
     bgGradient.classList.remove('bg-gradient-s1');
     bodyFontColor.classList.remove('font-s1');

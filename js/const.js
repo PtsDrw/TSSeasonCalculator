@@ -7,6 +7,11 @@ const mediumPoint = document.getElementById('mediumPoint');
 const bigPoint = document.getElementById('bigPoint');
 const timeUTC = document.getElementById('timeUTC');
 
+const infoBtn = document.querySelector('.info');
+const popup = document.querySelector('.popup');
+const popupHeader = document.querySelector('.popup-header');
+const popupClose = document.querySelector('.popup-close');
+
 const SmallMyScore0 = document.getElementById('SmallMyScore0');
 const SmallRivalScore3 = document.getElementById('SmallRivalScore3');
 const SmallMyScore1 = document.getElementById('SmallMyScore1');
@@ -103,5 +108,9 @@ const container1 = document.getElementById('container1');
 const container2 = document.getElementById('container2');
 const input1 = document.getElementById('input1');
 const input2 = document.getElementById('input2');
-const pointHeaders = document.querySelectorAll('.point-header, .SummaryHeader');
+const pointHeaders = document.querySelectorAll('.point-header, .SummaryHeader, .popup-header');
 const pointBodys = document.querySelectorAll('.point-body, .SummaryBody');
+
+//Чекбоксы
+const checkBoxLose = document.getElementById('typeLose');
+const checkBoxWin = document.getElementById('typeWin');
